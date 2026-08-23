@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Theme tokens — change these 6 to retheme everything */
+:root {
+  --radius: 0rem;
+
+  --brand-bg:            #e8e8e8;
+  --brand-panel:         #000000;
+  --brand-header:        #000000;
+
+  --brand-text:          #000000;
+  --brand-text-on-panel: #ffffff;
+
+  --brand-accent:        #ffffff;
+
+  --background: var(--brand-bg);
+  --foreground: var(--brand-text);
+
+  --card: var(--brand-panel);
+  --card-foreground: var(--brand-text-on-panel);
+
+  --primary: var(--brand-panel);
+  --primary-foreground: var(--brand-text-on-panel);
+
+  --secondary: #ffffff;
+  --secondary-foreground: #000000;
+
+  --muted: #d8d8d8;
+  --muted-foreground: #333333;
+
+  --accent: var(--brand-accent);
+  --accent-foreground: #000000;
+
+  --destructive: #d32f2f;
+
+  --border: #000000;
+  --input: #ffffff;
+  --ring: #000000;
+
+  --header: var(--brand-header);
+  --header-foreground: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-special-elite);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+nav,
+nav a {
+  font-family: var(--font-special-elite);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), serif;
+  letter-spacing: -0.01em;
+}

@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+}
+
+/* =========================================================
+ * THEME — Modifie ces 6 couleurs pour changer tout le site.
+ * ========================================================= */
+:root {
+  --radius: 0rem;
+
+  --brand-bg:            #e8e8e8;
+  --brand-panel:         #000000;
+  --brand-header:        #000000;
+
+  --brand-text:          #000000;
+  --brand-text-on-panel: #ffffff;
+
+  --brand-accent:        #ffffff;
+
+  --background: var(--brand-bg);
+  --foreground: var(--brand-text);
+
+  --card: var(--brand-panel);
+  --card-foreground: var(--brand-text-on-panel);
+
+  --primary: var(--brand-panel);
+  --primary-foreground: var(--brand-text-on-panel);
+
+  --secondary: #ffffff;
+  --secondary-foreground: #000000;
+
+  --muted: #d8d8d8;
+  --muted-foreground: #333333;
+
+  --accent: var(--brand-accent);
+  --accent-foreground: #000000;
+
+  --destructive: #d32f2f;
+
+  --border: #000000;
+  --input: #ffffff;
+  --ring: #000000;
+
+  --header: var(--brand-header);
+  --header-foreground: #ffffff;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  a[target="_blank"]::after {
+    content: '↗';
+  }
+}
