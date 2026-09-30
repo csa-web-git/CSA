@@ -13,7 +13,7 @@ export function ActivitesMobile({
   activitesPonctuelles,
 }: Props) {
   const [tab, setTab] = useState<'permanentes' | 'ponctuelles'>(
-    'permanentes',
+    'ponctuelles',
   )
 
   return (
@@ -21,18 +21,6 @@ export function ActivitesMobile({
       {/* Onglets fixes */}
       <div className="sticky top-0 z-50 border-b border-border bg-background px-4 py-3">
         <div className="flex overflow-hidden rounded-lg border border-border">
-          <button
-            onClick={() => setTab('permanentes')}
-            className={[
-              'flex-1 py-3 text-sm font-semibold transition-colors',
-              tab === 'permanentes'
-                ? 'bg-primary text-primary-foreground'
-                : 'bg-card text-card-foreground',
-            ].join(' ')}
-          >
-            Permanentes
-          </button>
-
           <button
             onClick={() => setTab('ponctuelles')}
             className={[
@@ -43,6 +31,18 @@ export function ActivitesMobile({
             ].join(' ')}
           >
             Ponctuelles
+          </button>
+
+          <button
+            onClick={() => setTab('permanentes')}
+            className={[
+              'flex-1 py-3 text-sm font-semibold transition-colors',
+              tab === 'permanentes'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-card text-card-foreground',
+            ].join(' ')}
+          >
+            Permanentes
           </button>
         </div>
       </div>

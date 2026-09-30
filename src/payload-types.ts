@@ -128,10 +128,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'parametres-pixel': ParametresPixel;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'parametres-pixel': ParametresPixelSelect<false> | ParametresPixelSelect<true>;
   };
   locale: null;
   widgets: {
@@ -2034,6 +2036,17 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "parametres-pixel".
+ */
+export interface ParametresPixel {
+  id: number;
+  rechargeMinutes: number;
+  reserveMax: number;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2074,6 +2087,17 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "parametres-pixel_select".
+ */
+export interface ParametresPixelSelect<T extends boolean = true> {
+  rechargeMinutes?: T;
+  reserveMax?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -10,6 +10,7 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
+import { ParametresPixel} from './globals/ParametresPixel'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { Equipes } from './collections/Equipes'
@@ -83,7 +84,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Media, Categories, Users, Activites, Equipes, Taches, BesoinsMateriels, ActivitesRecurrentes, Soumissions, Communiques, Kiosk, BanderoleSlides],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, ParametresPixel],
   plugins: [
     formBuilderPlugin({
       formOverrides: {},
