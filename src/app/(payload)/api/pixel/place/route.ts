@@ -1,17 +1,20 @@
+// src/app/api/pixel/place/route.ts
 import { list, put } from '@vercel/blob'
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
+import { getPayload } from 'payload'
+import config from '@payload-config'
 
 const CANVAS_KEY = 'pixel/canvas.json'
 const WIDTH = 128
 const HEIGHT = 128
-const COOLDOWN_MS = 5 * 60 * 1000 // 5 minutes
 
 const Schema = z.object({
   x: z.number().int().min(0).max(WIDTH - 1),
   y: z.number().int().min(0).max(HEIGHT - 1),
   color: z.string().regex(/^#[0-9a-fA-F]{6}$/),
-  lastPlaced: z.number().optional(), // timestamp depuis le client
+  lastRecharge: z.number(), // timestamp de la dernière recharge côté client
+  reserve: z.number().int().min(0), // réserve actuelle déclarée par le client
 })
 
 export async function POST(req: Request) {
@@ -21,20 +24,29 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Données invalides.' }, { status: 400 })
   }
 
-  const { x, y, color, lastPlaced } = parsed.data
+  const { x, y, color, lastRecharge, reserve } = parsed.data
 
-  // Vérifie le cooldown côté serveur aussi
+  // Lit la config
+  const payload = await getPayload({ config })
+  const p = await payload.findGlobal({ slug: 'parametres-pixel' })
+  const rechargeMs = (p.rechargeMinutes ?? 1) * 60 * 1000
+  const reserveMax = p.reserveMax ?? 10
+
+  // Calcule la réserve réelle côté serveur
   const now = Date.now()
-  if (lastPlaced && now - lastPlaced < COOLDOWN_MS) {
-    const remaining = Math.ceil((COOLDOWN_MS - (now - lastPlaced)) / 1000)
+  const pixelsRecharged = Math.floor((now - lastRecharge) / rechargeMs)
+  const trueReserve = Math.min(reserveMax, reserve + pixelsRecharged)
+
+  if (trueReserve <= 0) {
+    const nextRecharge = lastRecharge + (Math.floor(reserve === 0 ? 1 : 0) + 1 - reserve % 1) * rechargeMs
+    const remainingMs = Math.max(0, nextRecharge - now)
     return NextResponse.json(
-      { error: `Cooldown actif. Réessaie dans ${remaining}s.` },
+      { error: `Plus de pixels disponibles.`, remainingMs },
       { status: 429 },
     )
   }
 
   try {
-    // Lit le canvas actuel
     const { blobs } = await list({ prefix: 'pixel/' })
     const blob = blobs.find((b) => b.pathname === CANVAS_KEY)
 
@@ -47,16 +59,13 @@ export async function POST(req: Request) {
       pixels = data.pixels
     }
 
-    // Met à jour le pixel
-    const index = y * WIDTH + x
-    pixels[index] = color
+    pixels[y * WIDTH + x] = color
 
-    // Réécrit le canvas
     await put(CANVAS_KEY, JSON.stringify({ pixels }), {
       access: 'public',
       contentType: 'application/json',
       addRandomSuffix: false,
-      allowOverwrite: true
+      allowOverwrite: true,
     })
 
     return NextResponse.json({ ok: true, timestamp: now })
