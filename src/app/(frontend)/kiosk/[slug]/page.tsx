@@ -40,13 +40,6 @@ export default async function KioskDetailPage({
       </Link>
 
       <h1 className="mb-2 text-2xl font-bold">{kiosk.titre}</h1>
-      <p className="mb-6 whitespace-pre-line text-foreground/70">
-        {kiosk.descriptionCourte}
-      </p>
-
-      <div className="overflow-hidden rounded-2xl border border-card-foreground/10 shadow">
-        <iframe src={pdfMedia.url} title={kiosk.titre} className="h-[80vh] w-full" />
-      </div>
 
       <a
         href={pdfMedia.url}
@@ -56,6 +49,14 @@ export default async function KioskDetailPage({
       >
         Ouvrir le PDF dans un nouvel onglet
       </a>
+
+      <div className="overflow-hidden rounded-2xl border border-card-foreground/10 shadow">
+        <iframe src={pdfMedia.url} title={kiosk.titre} className="h-[80vh] w-full" />
+      </div>
+
+      <p className="mb-6 whitespace-pre-line text-foreground/70">
+        {kiosk.descriptionCourte}
+      </p>
     </div>
   )
 }
