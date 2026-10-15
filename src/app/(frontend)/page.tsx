@@ -83,40 +83,44 @@ export default async function HomePage() {
       <div className="flex items-start">
         {/* Contenu principal */}
         <main className="flex-1 min-w-0 space-y-6 py-6">
-          <Link href="/kiosk/carte-blanche" className="block">
-          <Panel title="Carte Blanche">
-            <div className="space-y-4 text-xl leading-relaxed">
-              <p>
-                A tous les collectifs, 
-                à toutes les associations de Liège ou d’ailleurs
-                Appel à signer notre carte blanche 
-                Plus de signatures, plus de résistance ! 
-              </p>
-              <p>
-                Chers collectifs, 
-                Chères associations,
-                Nous faisons appel à votre soutien pour faire perdurer le CSA et toute la solidarité qu'il nourri ! 
-                On a besoin d'un max de signatures !!!
-                Apportez-nous votre soutien inestimable en 3 étapes !
-              </p>
-              <p className="whitespace-pre-line">
-                Les 3 étapes :
-                {"\n"}1. Contactez-nous 
-                par mail : csa-liege@riseup.net
-                ou via instagram : @csaliege
-                {"\n"}2. Demandez à être signataire la carte blanche en tant que collectif, en tant qu'association 
-                {"\n"}3. Faites tourner un max dans tout votre réseau militant/associatif
-              </p>
-              <p className="whitespace-pre-line">
-                La carte blanche en 4 points :
-                {"\n"}1. Contre l’Arizona et son monde raciste, capitaliste, militariste
-                {"\n"}2. Préserver Liège de la gentrification 
-                {"\n"}3. Refus de la spéculation et la  financiarisation du logement
-                {"\n"}4.  S’organiser en autonomie et resiter à la politique d’autérité
-              </p>
-              <p className="text-center">REMPLISSONS LE VIDE PAR LA SOLIDARITE!</p>
-            </div>
-          </Panel>
+          <Link href="/kiosk/carte-blanche" className="group block rounded-xl focus-visible:outline-2
+             focus-visible:outline-offset-4 focus-visible:outline-primary">
+            <Panel title="Carte Blanche">
+              <div className="space-y-4 text-xl leading-relaxed">
+                <p>
+                  A tous les collectifs,
+                  à toutes les associations de Liège ou d’ailleurs
+                  Appel à signer notre carte blanche
+                  Plus de signatures, plus de résistance !
+                </p>
+                <p>
+                  Chers collectifs,
+                  Chères associations,
+                  Nous faisons appel à votre soutien pour faire perdurer le CSA et toute la solidarité qu'il nourri !
+                  On a besoin d'un max de signatures !!!
+                  Apportez-nous votre soutien inestimable en 3 étapes !
+                </p>
+                <p className="whitespace-pre-line">
+                  Les 3 étapes :
+                  {"\n"}1. Contactez-nous
+                  par mail : csa-liege@riseup.net
+                  ou via instagram : @csaliege
+                  {"\n"}2. Demandez à être signataire la carte blanche en tant que collectif, en tant qu'association
+                  {"\n"}3. Faites tourner un max dans tout votre réseau militant/associatif
+                </p>
+                <p className="whitespace-pre-line">
+                  La carte blanche en 4 points :
+                  {"\n"}1. Contre l’Arizona et son monde raciste, capitaliste, militariste
+                  {"\n"}2. Préserver Liège de la gentrification
+                  {"\n"}3. Refus de la spéculation et la  financiarisation du logement
+                  {"\n"}4.  S’organiser en autonomie et resiter à la politique d’autérité
+                </p>
+                <p className="text-center">REMPLISSONS LE VIDE PAR LA SOLIDARITE!</p>
+              </div>
+              <div className="mt-4 text-center font-semibold text-white underline">
+                Lire la carte blanche →
+              </div>
+            </Panel>
           </Link>
 
           <Panel>
@@ -208,11 +212,11 @@ export default async function HomePage() {
                 ponctuel, chaque geste est apprécié!
               </p>
               <p><b>Viens nous rencontrer : </b></p>
-                <ul>
-                  <li> - tous les 1er et 3ème dimanche du mois, entre 14 et 18h, pour une prise de contact conviviale ; </li>
-                  <li> - tous les 5 et 20 de chaque mois, à 18h, pour participer aux Assemblées Générales!</li>
-                </ul>                
-              
+              <ul>
+                <li> - tous les 1er et 3ème dimanche du mois, entre 14 et 18h, pour une prise de contact conviviale ; </li>
+                <li> - tous les 5 et 20 de chaque mois, à 18h, pour participer aux Assemblées Générales!</li>
+              </ul>
+
               <p>
                 Nous avons également besoin de matos de toutes sortes, tu trouveras la liste de ce que nous cherchons en {' '}
                 <Link
@@ -225,8 +229,8 @@ export default async function HomePage() {
               <p>
                 Enfin, même si l'argent c'est (vraiment très) mal, et qu'on veut en finir
                 définitivement avec lui et le capitalisme, pour le moment on en a quand même (un peu)
-                besoin pour faire tenir le lieu et alimenter nos luttes. Alors si tu en as envie, saches 
-                que nous acceptons les dons! N'hésite pas à nous contacter via le formulaire, 
+                besoin pour faire tenir le lieu et alimenter nos luttes. Alors si tu en as envie, saches
+                que nous acceptons les dons! N'hésite pas à nous contacter via le formulaire,
                 nous t'expliquerons comment faire et à quoi ça nous sert!
               </p>
             </div>
