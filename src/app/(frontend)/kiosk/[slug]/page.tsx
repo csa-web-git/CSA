@@ -34,14 +34,15 @@ export default async function KioskDetailPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <Link
         href="/kiosk"
-        className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/70 hover:text-foreground"
+        className="mb-6 inline-block rounded-full bg-header px-4 py-2 text-sm text-header-foreground"
       >
-        <ArrowLeft className="h-4 w-4" />
-        Retour au Kiosk
+        ← Retour au Kiosk
       </Link>
 
       <h1 className="mb-2 text-2xl font-bold">{kiosk.titre}</h1>
-      <p className="mb-6 text-foreground/70">{kiosk.descriptionCourte}</p>
+      <p className="mb-6 whitespace-pre-line text-foreground/70">
+        {kiosk.descriptionCourte}
+      </p>
 
       <div className="overflow-hidden rounded-2xl border border-card-foreground/10 shadow">
         <iframe src={pdfMedia.url} title={kiosk.titre} className="h-[80vh] w-full" />
