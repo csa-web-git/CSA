@@ -108,7 +108,7 @@ export default function CreerPlusieursActivites() {
             lieu: form.lieu,
             organisateurs: form.organisateurs || undefined,
             descriptionCourte: form.descriptionCourte || undefined,
-            ...(form.categorie ? { categorie: form.categorie } : {}),
+            ...(form.categorie ? { categorie: Number(form.categorie) } : {}),
             afficherActivitePonctuelle: form.afficherActivitePonctuelle,
           }),
         })
