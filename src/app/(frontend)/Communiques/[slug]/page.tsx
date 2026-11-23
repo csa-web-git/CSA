@@ -37,13 +37,13 @@ export default async function CommuniqueDetailPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <Link
         href="/Communiques"
-        className="mb-6 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/70 hover:text-foreground"
+        className="mb-6 inline-block rounded-full bg-header px-4 py-2 text-sm text-header-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
         Retour aux communiqués
       </Link>
       <h1 className="mb-2 text-2xl font-bold">{communique.titre}</h1>
-      <p className="mb-6 text-foreground/70">{communique.descriptionCourte}</p>
+      <p className="mb-6 text-foreground/70 whitespace-pre-line">{communique.descriptionCourte}</p>
 
       <div className="overflow-hidden rounded-2xl border border-card-foreground/10 shadow">
         <iframe src={pdfMedia.url} title={communique.titre} className="h-[80vh] w-full" />
