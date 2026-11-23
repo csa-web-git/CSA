@@ -83,42 +83,18 @@ export default async function HomePage() {
       <div className="flex items-start">
         {/* Contenu principal */}
         <main className="flex-1 min-w-0 space-y-6 py-6">
-          <Link href="/kiosk/carte-blanche" className="group block rounded-xl focus-visible:outline-2
+          <Link href="/kiosk/csa-expulsion" className="group block rounded-xl focus-visible:outline-2
              focus-visible:outline-offset-4 focus-visible:outline-primary">
-            <Panel title="Carte Blanche">
-              <div className="space-y-4 text-xl leading-relaxed">
-                <p>
-                  A tous les collectifs,
-                  à toutes les associations de Liège ou d’ailleurs
-                  Appel à signer notre carte blanche
-                  Plus de signatures, plus de résistance !
-                </p>
-                <p>
-                  Chers collectifs,
-                  Chères associations,
-                  Nous faisons appel à votre soutien pour faire perdurer le CSA et toute la solidarité qu'il nourri !
-                  On a besoin d'un max de signatures !!!
-                  Apportez-nous votre soutien inestimable en 3 étapes !
-                </p>
-                <p className="whitespace-pre-line">
-                  Les 3 étapes :
-                  {"\n"}1. Contactez-nous
-                  par mail : csa-liege@riseup.net
-                  ou via instagram : @csaliege
-                  {"\n"}2. Demandez à être signataire la carte blanche en tant que collectif, en tant qu'association
-                  {"\n"}3. Faites tourner un max dans tout votre réseau militant/associatif
-                </p>
-                <p className="whitespace-pre-line">
-                  La carte blanche en 4 points :
-                  {"\n"}1. Contre l’Arizona et son monde raciste, capitaliste, militariste
-                  {"\n"}2. Préserver Liège de la gentrification
-                  {"\n"}3. Refus de la spéculation et la  financiarisation du logement
-                  {"\n"}4.  S’organiser en autonomie et resiter à la politique d’autérité
-                </p>
-                <p className="text-center">REMPLISSONS LE VIDE PAR LA SOLIDARITE!</p>
+            <Panel title="CSA s'expulse pas!">
+              <div className="gap-6">
+                <img
+                  src="/visu/CSA_expulse.png"
+                  alt="Assemblée Générale"
+                  className="w-full max-h-[500px] rounded-2xl object-contain"
+                />
               </div>
               <div className="mt-4 text-center font-semibold text-white underline">
-                Lire la carte blanche →
+                Cette affiche est disponible dans l'onglet kiosk. Imprime la et colle la sur ta fenêtre !
               </div>
             </Panel>
           </Link>
