@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 const mainLinks = [
   { href: '/programme', label: 'Programme' },
   { href: '/activites', label: 'Activites' },
-  { href: '/soutien-materiel', label: 'Soutien' },
+  // { href: '/soutien-materiel', label: 'Soutien' },
   { href: '/Communiques', label: 'Communiques' },
   { href: '/kiosk', label: 'Kiosk' },
   { href: '/pixel', label: 'Pixel!'}
